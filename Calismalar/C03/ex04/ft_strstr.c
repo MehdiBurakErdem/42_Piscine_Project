@@ -12,22 +12,22 @@
 
 char	*ft_strstr(char *str, char *to_find)
 {
+	int		i;
 	int		j;
 
-	j = 0;
-	if (!(to_find[j]))
+	i = 0;
+	if (to_find[0] == '\0')
 		return (str);
-	while (*str)
+	while (str[i] != '\0')
 	{
-		while (*str == to_find[j])
+		j = 0;
+		while (str[i + j] == to_find[j])
 		{
 			if (to_find[j + 1] == '\0')
-				return (str - j);
-			str++;
+				return (&str[i]);
 			j++;
 		}
-		j = 0;
-		str++;
+		i++;
 	}
 	return (0);
 }
